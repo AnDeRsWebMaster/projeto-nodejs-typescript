@@ -1,4 +1,4 @@
-import { Router, request } from 'express'
+import { Router } from 'express'
 import { startOfHour, parseISO } from 'date-fns'
 
 import AppointmentsRepository from '../repositories/AppointmentsRepository'
@@ -23,7 +23,7 @@ if(findAppointmentInSameDate){
 }
 
 
-const appointment = appointmentsRepository.create(provider,parsedDate)
+const appointment = appointmentsRepository.create({provider,date:parsedDate})
   return response.json(appointment)
 })
 
